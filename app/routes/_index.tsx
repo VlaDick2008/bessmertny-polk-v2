@@ -13,7 +13,7 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <section className="m-auto max-w-3xl">
+    <>
       <div className="flex flex-col gap-4 justify-center items-center">
         <img
           width={560}
@@ -45,6 +45,6 @@ export default function Index() {
           </p>
         </div>
       </div>
-    </section>
+    </>
   );
 }

@@ -47,10 +47,13 @@ export default function App() {
     <>
       <Header />
       <main>
-        <Outlet />
-        <p className="pt-10 text-sm text-center text-gray-400">
-          © МБОУ СШ №2 г. Вязьмы Смоленской обл., 2020-2024
-        </p>
+        <section className="m-auto max-w-3xl">
+          <Outlet />
+        </section>
+
+        <footer className="pt-10 text-sm text-center text-gray-400">
+          <p>© МБОУ СШ №2 г. Вязьмы Смоленской обл., 2020-2024</p>
+        </footer>
       </main>
     </>
   );

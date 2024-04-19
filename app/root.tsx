@@ -26,7 +26,7 @@ export const links: LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="notranslate" translate="no">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -34,6 +34,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        <Header />
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -44,17 +45,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <>
-      <Header />
-      <main>
-        <section className="m-auto max-w-3xl">
-          <Outlet />
-        </section>
+    <main key="main">
+      <section className="m-auto max-w-3xl">
+        <Outlet />
+      </section>
 
-        <footer className="pt-10 text-sm text-center text-gray-400">
-          <p>© МБОУ СШ №2 г. Вязьмы Смоленской обл., 2020-2024</p>
-        </footer>
-      </main>
-    </>
+      <footer key="footer" className="py-5 text-sm text-center text-gray-400">
+        <p>© МБОУ СШ №2 г. Вязьмы Смоленской обл., 2020-2024</p>
+      </footer>
+    </main>
   );
 }

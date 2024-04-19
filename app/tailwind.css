@@ -7,3 +7,22 @@
   font-optical-sizing: auto;
   font-style: normal;
 }
+
+.tiptap {
+  padding: 0.5rem;
+  border-width: 1px;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-border-opacity: 1;
+  border-radius: 0.25rem;
+  border-color: rgb(203 213 225 / var(--tw-border-opacity));
+}
+
+.tiptap:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(148 163 184 / var(--tw-border-opacity));
+}
+
+.paragraphPadding {
+  padding-bottom: 0.5rem;
+}

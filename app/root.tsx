@@ -32,7 +32,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
           type="text/javascript"></script>
       </head>
       <body>
-        <Header />
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -45,6 +44,7 @@ export default function App() {
   const navigation = useNavigation();
   return (
     <main key="main">
+      <Header />
       <section
         className={`m-auto max-w-3xl ${
           navigation.state === 'loading' ? 'opacity-25 transition-opacity' : ''

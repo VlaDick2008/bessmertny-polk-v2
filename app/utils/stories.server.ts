@@ -1,11 +1,29 @@
+import { Prisma } from '@prisma/client';
 import { prisma } from './prisma.server';
 
-export async function getStories() {
+export async function getStories(sort: string): Promise<Prisma.StoryUncheckedCreateInput[]> {
+  let orderBy: Prisma.StoryOrderByWithRelationInput = {
+    firstName: 'asc',
+  };
+
+  switch (sort) {
+    case 'first':
+      orderBy = { createdAt: 'asc' };
+      break;
+    case 'last':
+      orderBy = { createdAt: 'desc' };
+      break;
+    case 'alphabet':
+      orderBy = { firstName: 'asc' };
+      break;
+    default:
+      break;
+  }
+
   const stories = await prisma.story.findMany({
-    orderBy: {
-      firstName: 'asc',
-    },
+    orderBy,
   });
+
   return stories;
 }
 

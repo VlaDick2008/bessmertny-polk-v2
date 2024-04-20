@@ -1,13 +1,8 @@
-import {
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from '@remix-run/react';
-
+import { Links, Meta, Outlet, Scripts, ScrollRestoration, useNavigation } from '@remix-run/react';
 import type { LinksFunction } from '@remix-run/node';
+
 import stylesheet from '~/tailwind.css?url';
+
 import Header from './components/Header';
 
 export const links: LinksFunction = () => [
@@ -32,6 +27,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <script
+          src="https://upload-widget.cloudinary.com/global/all.js"
+          type="text/javascript"></script>
       </head>
       <body>
         <Header />
@@ -44,9 +42,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const navigation = useNavigation();
   return (
     <main key="main">
-      <section className="m-auto max-w-3xl">
+      <section
+        className={`m-auto max-w-3xl ${
+          navigation.state === 'loading' ? 'opacity-25 transition-opacity' : ''
+        }`}>
         <Outlet />
       </section>
 

@@ -26,3 +26,20 @@
 .paragraphPadding {
   padding-bottom: 0.5rem;
 }
+
+.fileInput {
+  --tw-border-opacity: 1;
+  border-color: rgb(203 213 225 / var(--tw-border-opacity));
+  border-width: 1px;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+}
+.fileInput[type='file'] {
+  --tw-border-opacity: 1;
+  border-color: rgb(203 213 225 / var(--tw-border-opacity));
+  border-width: 1px;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}

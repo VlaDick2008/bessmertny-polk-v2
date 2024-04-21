@@ -1,5 +1,6 @@
 declare namespace JSX {
   interface IntrinsicElements {
-    'swiper-container': SwiperContainerProps,
-    'swiper-slide': SwiperSlideProps,
+    'swiper-container': SwiperContainerProps;
+    'swiper-slide': SwiperSlideProps;
+  }
 }

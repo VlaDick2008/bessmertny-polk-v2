@@ -1,5 +1,6 @@
-import type { MetaFunction } from '@remix-run/node';
-import { Link } from '@remix-run/react';
+import type { LoaderFunction, MetaFunction } from '@remix-run/node';
+import { json, Link, useLoaderData } from '@remix-run/react';
+import { getStories } from '~/utils/stories.server';
 
 export const meta: MetaFunction = () => {
   return [
@@ -11,7 +12,15 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export const loader: LoaderFunction = async () => {
+  const stories = await getStories('first');
+
+  return json({ stories });
+};
+
 export default function Index() {
+  const { stories } = useLoaderData<typeof loader>();
+
   return (
     <div className="flex flex-col gap-4 justify-center items-center">
       <img width={560} height={248} src="/logo.svg" alt="logo" className="mt-2" />
@@ -19,7 +28,7 @@ export default function Index() {
         <Link
           className="flex flex-col gap-3 justify-center items-center p-2 text-2xl transition hover:text-gray-600"
           to="/stories">
-          <span className="font-bold text-[56px] pt-3">78</span>
+          <span className="font-bold text-[56px] pt-3">{Object.keys(stories).length}</span>
           <br />
           имён в летописи
         </Link>

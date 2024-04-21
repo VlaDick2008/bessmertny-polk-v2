@@ -1,5 +1,13 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration, useNavigation } from '@remix-run/react';
-import type { LinksFunction } from '@remix-run/node';
+import {
+  Links,
+  Meta,
+  Outlet,
+  redirect,
+  Scripts,
+  ScrollRestoration,
+  useNavigation,
+} from '@remix-run/react';
+import type { ActionFunction, LinksFunction } from '@remix-run/node';
 import { register } from 'swiper/element/bundle';
 
 import stylesheet from '~/tailwind.css?url';
@@ -21,6 +29,14 @@ export const links: LinksFunction = () => [
   },
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
 ];
+
+export const action: ActionFunction = async ({ request }) => {
+  const formData = await request.formData();
+  const query = formData.get('q');
+  const convertedQuery = encodeURIComponent(query!.toString());
+
+  return redirect(`/stories/search/?q=${convertedQuery}`);
+};
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -50,7 +66,7 @@ export default function App() {
     <main key="main">
       <Header />
       <section
-        className={`m-auto max-w-3xl ${
+        className={`md:m-auto md:max-w-3xl mx-10 max-w-full ${
           navigation.state === 'loading' ? 'opacity-25 transition-opacity' : ''
         }`}>
         <Outlet />

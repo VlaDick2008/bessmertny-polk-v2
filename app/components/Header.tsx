@@ -1,5 +1,5 @@
 import { Link } from '@remix-run/react';
-import Input from './UI/Input';
+import SearchInput from './UI/SearchInput';
 
 export default function Header() {
   return (
@@ -13,13 +13,14 @@ export default function Header() {
       <Link className="text-xl" to="/tell_story">
         Рассказать историю
       </Link>
-      <div className="flex relative items-center">
+      {/* <div className="flex relative items-center">
         <Input
           placeholder="Найти историю..."
           style="p-2 rounded-t border border-transparent border-b-black bg-transparent"
         />
         <img className="absolute right-3" src="/search_icon.svg" alt="search" />
-      </div>
+      </div> */}
+      <SearchInput />
     </header>
   );
 }

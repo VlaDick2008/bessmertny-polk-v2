@@ -82,8 +82,6 @@ export default function TellStory() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [file]);
 
-  console.log(fetcher.formData);
-
   return (
     <section className="pt-10 text-lg">
       <fetcher.Form

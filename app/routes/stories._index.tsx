@@ -1,8 +1,20 @@
 import { Prisma } from '@prisma/client';
-import { json, LoaderFunction } from '@remix-run/node';
+import { json, LoaderFunction, MetaFunction } from '@remix-run/node';
 import { Link, useLoaderData, useSearchParams } from '@remix-run/react';
-import StoryCard from '~/components/StoryCard';
+
 import { getRecentStories, getStories } from '~/utils/stories.server';
+
+import StoryCard from '~/components/StoryCard';
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: 'Бессмертный полк' },
+    {
+      name: 'Влад, напиши тут описание, я не успеваю',
+      content: 'Крутой сайт (вот ряльна)',
+    },
+  ];
+};
 
 export const loader: LoaderFunction = async ({ request }) => {
   const url = new URL(request.url);
@@ -21,6 +33,19 @@ export default function Stories() {
 
   return (
     <>
+      <swiper-container
+        autoplay-delay="2500"
+        autoplay-disable-on-interaction="false"
+        slides-per-view="5">
+        {stories.map((story) => (
+          <swiper-slide key={story.id}>
+            <div className="w-[130px] h-[180px]">
+              <img src={story.photo} alt="" className="object-cover w-full h-full" />
+            </div>
+          </swiper-slide>
+        ))}
+      </swiper-container>
+
       <h2 className="text-3xl font-bold my-5">Недавно добавленые</h2>
       <div className="flex flex-wrap items-center justify-center gap-5">
         {recentStories.map((story: Prisma.StoryUncheckedCreateInput) => (

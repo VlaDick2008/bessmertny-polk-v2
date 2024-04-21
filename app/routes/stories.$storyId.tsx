@@ -1,8 +1,18 @@
-import type { LoaderFunctionArgs } from '@remix-run/node';
+import type { LoaderFunctionArgs, MetaFunction } from '@remix-run/node';
 import { json, useLoaderData } from '@remix-run/react';
 import invariant from 'tiny-invariant';
 
 import { getSingleStory } from '~/utils/stories.server';
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: 'Бессмертный полк' },
+    {
+      name: 'Влад, напиши тут описание, я не успеваю',
+      content: 'Крутой сайт (вот ряльна)',
+    },
+  ];
+};
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   invariant(params.storyId, 'Missing contactId param');

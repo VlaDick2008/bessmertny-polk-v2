@@ -1,6 +1,7 @@
 import {
   ActionFunctionArgs,
   json,
+  MetaFunction,
   redirect,
   unstable_composeUploadHandlers,
   unstable_createMemoryUploadHandler,
@@ -13,6 +14,16 @@ import Input from '~/components/UI/Input';
 import { prisma } from '~/utils/prisma.server';
 import { uploadImage } from '~/utils/cloudinary.server';
 import React from 'react';
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: 'Бессмертный полк' },
+    {
+      name: 'Влад, напиши тут описание, я не успеваю',
+      content: 'Крутой сайт (вот ряльна)',
+    },
+  ];
+};
 
 export const action = async ({ request }: ActionFunctionArgs) => {
   const uploadHandler = unstable_composeUploadHandlers(async ({ name, data }) => {

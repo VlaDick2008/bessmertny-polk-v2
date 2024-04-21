@@ -3,6 +3,7 @@ interface IInput {
   label?: string;
   style?: string;
   placeholder?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function Input({ htmlFor, label, style, placeholder }: IInput) {

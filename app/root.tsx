@@ -1,9 +1,12 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, useNavigation } from '@remix-run/react';
 import type { LinksFunction } from '@remix-run/node';
+import { register } from 'swiper/element/bundle';
 
 import stylesheet from '~/tailwind.css?url';
 
 import Header from './components/Header';
+
+register();
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: stylesheet },
@@ -30,6 +33,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <script
           src="https://upload-widget.cloudinary.com/global/all.js"
           type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
       </head>
       <body>
         {children}

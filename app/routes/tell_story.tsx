@@ -88,7 +88,7 @@ export default function TellStory() {
         method="post"
         className="flex flex-col gap-4 flex-1"
         encType="multipart/form-data">
-        <div className="flex gap-3">
+        <div className="flex lg:flex-row flex-col gap-3">
           <Input label="Имя" htmlFor="firstName" />
           <Input label="Фамилия" htmlFor="secondName" />
           <Input label="Отчество" htmlFor="lastName" />

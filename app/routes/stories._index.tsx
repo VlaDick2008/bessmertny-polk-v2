@@ -71,10 +71,16 @@ export default function Stories() {
             setSearchParams({ sort: e.target.value });
           }}
           value={sort}
-          className="p-2 rounded border border-slate-300">
-          <option value="first">С начала</option>
-          <option value="last">С конца</option>
-          <option value="alphabet">По алфавиту</option>
+          className="p-2 rounded border border-slate-300 lg:text-base text-sm">
+          <option className="lg:text-base text-sm" value="first">
+            С начала
+          </option>
+          <option className="lg:text-base text-sm" value="last">
+            С конца
+          </option>
+          <option className="lg:text-base text-sm" value="alphabet">
+            По алфавиту
+          </option>
         </select>
       </div>
 

@@ -62,6 +62,11 @@ export async function getStoriesBySearch(query: string) {
             },
           },
         ],
+        AND: [
+          {
+            isVerified: true,
+          },
+        ],
       },
     });
 
@@ -77,6 +82,9 @@ export async function getRecentStories() {
       take: 4,
       orderBy: {
         createdAt: 'desc',
+      },
+      where: {
+        isVerified: true,
       },
     });
     return stories;

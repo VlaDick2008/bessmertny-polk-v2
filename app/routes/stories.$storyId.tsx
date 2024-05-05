@@ -16,7 +16,9 @@ export const meta: MetaFunction = () => {
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   invariant(params.storyId, 'Missing contactId param');
+
   const story = await getSingleStory(params.storyId);
+
   return json({ story });
 };
 
@@ -26,10 +28,9 @@ export default function Story() {
   return (
     <div className="py-10">
       <div className=" flex gap-5">
-        <div className="w-[367px] h-[490px]">
-          <img src={story?.photo as string} alt="" className="object-cover w-full h-full" />
+        <div className="w-[367px] h-[490px] rounded">
+          <img src={story?.photo as string} alt="" className="object-cover w-full h-full rounded" />
         </div>
-
         <div>
           <div className="text-5xl">
             <p>{story?.firstName}</p>
@@ -37,6 +38,13 @@ export default function Story() {
             <p>{story?.lastName}</p>
           </div>
         </div>
+      </div>
+      <div className="flex flex-wrap gap-2 mt-5 bg-stone-800 rounded p-2">
+        {story.aditionalPhotos.map((photo: string) => (
+          <div key={photo} className="w-[144px] h-[200px] rounded">
+            <img src={photo} className="object-cover w-full h-full rounded" alt="" />
+          </div>
+        ))}
       </div>
       <div
         className="mt-5 text-xl"

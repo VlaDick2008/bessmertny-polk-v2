@@ -8,7 +8,7 @@ export default function Header() {
 
   return (
     <header className="relative flex gap-5 lg:justify-center items-center lg:py-1 py-2 w-full border-2 bg-slate-100 border-b-gray-200">
-      <div className="hidden lg:flex">
+      <div className="hidden lg:flex lg:items-center lg:gap-4">
         <Link to="/">
           <img width={135} height={60} src="/logo.svg" alt="logo" />
         </Link>
@@ -21,7 +21,7 @@ export default function Header() {
         <SearchInput />
       </div>
 
-      <div className="flex justify-between w-full mx-5">
+      <div className="flex lg:hidden justify-between w-full mx-5">
         <button
           className="flex flex-col justify-between w-8 h-6 my-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}>

@@ -1,3 +1,4 @@
+import React from 'react';
 import type { LoaderFunctionArgs, MetaFunction } from '@remix-run/node';
 import { json, useLoaderData } from '@remix-run/react';
 import invariant from 'tiny-invariant';
@@ -39,13 +40,16 @@ export default function Story() {
           </div>
         </div>
       </div>
-      <div className="flex flex-wrap gap-2 mt-5 bg-stone-800 rounded p-2">
-        {story?.aditionalPhotos.map((photo: string) => (
-          <div key={photo} className="lg:w-[144px] lg:h-[200px] w-[100px] h-[160px] rounded">
-            <img src={photo} className="object-cover w-full h-full rounded" alt="" />
-          </div>
-        ))}
-      </div>
+      {story?.aditionalPhotos.length ? (
+        <div className="flex flex-wrap gap-2 mt-5 bg-stone-800 rounded p-2">
+          {story?.aditionalPhotos.map((photo: string) => (
+            <div key={photo} className="lg:w-[144px] lg:h-[200px] w-[100px] h-[160px] rounded">
+              <img src={photo} className="object-cover w-full h-full rounded" alt="" />
+            </div>
+          ))}
+        </div>
+      ) : null}
+
       <div
         className="mt-5 text-xl"
         dangerouslySetInnerHTML={{ __html: story?.storyText as string }}></div>

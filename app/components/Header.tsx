@@ -35,12 +35,16 @@ export default function Header() {
         className={`${
           isMenuOpen ? 'flex flex-col' : 'hidden'
         } absolute bg-slate-200 border-b-2 border-slate-400 top-14 w-full p-3 gap-2`}>
-        <Link className="text-xl" to="/stories">
-          Истории
-        </Link>
-        <Link className="text-xl" to="/tell_story">
-          Рассказать историю
-        </Link>
+        <button onClick={() => setIsMenuOpen(false)}>
+          <Link className="text-xl" to="/stories">
+            Истории
+          </Link>
+        </button>
+        <button onClick={() => setIsMenuOpen(false)}>
+          <Link className="text-xl" to="/tell_story">
+            Рассказать историю
+          </Link>
+        </button>
       </div>
     </header>
   );

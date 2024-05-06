@@ -66,7 +66,7 @@ export default function App() {
     <main key="main">
       <Header />
       <section
-        className={`md:m-auto md:max-w-3xl mx-10 max-w-full ${
+        className={`md:m-auto md:max-w-3xl mx-6 max-w-full ${
           navigation.state === 'loading' ? 'opacity-25 transition-opacity' : ''
         }`}>
         <Outlet />

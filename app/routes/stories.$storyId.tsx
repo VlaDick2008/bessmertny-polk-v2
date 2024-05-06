@@ -27,12 +27,12 @@ export default function Story() {
 
   return (
     <div className="py-10">
-      <div className=" flex gap-5">
-        <div className="w-[367px] h-[490px] rounded">
+      <div className="flex flex-col lg:flex-row gap-5">
+        <div className="lg:w-[367px] lg:h-[490px] w-[190px] h-[270px] rounded">
           <img src={story?.photo as string} alt="" className="object-cover w-full h-full rounded" />
         </div>
         <div>
-          <div className="text-5xl">
+          <div className="lg:text-5xl text-3xl">
             <p>{story?.firstName}</p>
             <p>{story?.secondName}</p>
             <p>{story?.lastName}</p>
@@ -40,8 +40,8 @@ export default function Story() {
         </div>
       </div>
       <div className="flex flex-wrap gap-2 mt-5 bg-stone-800 rounded p-2">
-        {story.aditionalPhotos.map((photo: string) => (
-          <div key={photo} className="w-[144px] h-[200px] rounded">
+        {story?.aditionalPhotos.map((photo: string) => (
+          <div key={photo} className="lg:w-[144px] lg:h-[200px] w-[100px] h-[160px] rounded">
             <img src={photo} className="object-cover w-full h-full rounded" alt="" />
           </div>
         ))}

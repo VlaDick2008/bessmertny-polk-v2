@@ -49,7 +49,7 @@ export default function Stories() {
       </div>
 
       <h2 className="md:text-3xl text-lg font-bold my-5">Недавно добавленые</h2>
-      <div className="flex flex-wrap items-center justify-center gap-5">
+      <div className="flex flex-wrap items-center justify-center lg:gap-5 gap-2">
         {recentStories.map((story: Prisma.StoryUncheckedCreateInput) => (
           <Link key={story.id} to={`/stories/${story.id}`}>
             <StoryCard
@@ -84,7 +84,7 @@ export default function Stories() {
         </select>
       </div>
 
-      <div className="flex flex-wrap items-center gap-5">
+      <div className="flex flex-wrap items-center justify-center lg:gap-5 gap-1">
         {stories.map((story: Prisma.StoryUncheckedCreateInput) => (
           <Link key={story.id} to={`/stories/${story.id}`}>
             <StoryCard

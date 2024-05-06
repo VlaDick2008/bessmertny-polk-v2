@@ -14,7 +14,7 @@ export default function StoryCard({
       <div className="md:w-[150px] md:h-[200px] h-[120px] w-[90px]">
         <img src={photo} alt="" className="object-cover w-full h-full" />
       </div>
-      <p className="text-center md:text-2xl text-sm border-t border-slate-300 mt-3">
+      <p className="text-center md:text-2xl text-sm border-t border-slate-300 mt-3 pt-2">
         {firstName}
         <br /> {secondName}
         <br /> {lastName}

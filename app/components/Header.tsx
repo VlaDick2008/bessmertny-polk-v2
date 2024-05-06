@@ -1,26 +1,47 @@
+import React from 'react';
 import { Link } from '@remix-run/react';
+
 import SearchInput from './UI/SearchInput';
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
   return (
-    <header className="flex gap-5 justify-center items-center py-1 w-full border-2 bg-slate-100 border-b-gray-200">
-      <Link to="/">
-        <img width={135} height={60} src="/logo.svg" alt="logo" />
-      </Link>
-      <Link className="text-xl" to="/stories">
-        Истории
-      </Link>
-      <Link className="text-xl" to="/tell_story">
-        Рассказать историю
-      </Link>
-      {/* <div className="flex relative items-center">
-        <Input
-          placeholder="Найти историю..."
-          style="p-2 rounded-t border border-transparent border-b-black bg-transparent"
-        />
-        <img className="absolute right-3" src="/search_icon.svg" alt="search" />
-      </div> */}
-      <SearchInput />
+    <header className="relative flex gap-5 lg:justify-center items-center lg:py-1 py-2 w-full border-2 bg-slate-100 border-b-gray-200">
+      <div className="hidden lg:flex">
+        <Link to="/">
+          <img width={135} height={60} src="/logo.svg" alt="logo" />
+        </Link>
+        <Link className="text-xl" to="/stories">
+          Истории
+        </Link>
+        <Link className="text-xl" to="/tell_story">
+          Рассказать историю
+        </Link>
+        <SearchInput />
+      </div>
+
+      <div className="flex justify-between w-full mx-5">
+        <button
+          className="flex flex-col justify-between w-8 h-6 my-2"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <span className="block w-full h-1 bg-slate-800"></span>
+          <span className="block w-full h-1 bg-slate-800"></span>
+          <span className="block w-full h-1 bg-slate-800"></span>
+        </button>
+        <SearchInput />
+      </div>
+      <div
+        className={`${
+          isMenuOpen ? 'flex flex-col' : 'hidden'
+        } absolute bg-slate-200 border-b-2 border-slate-400 top-14 w-full p-3 gap-2`}>
+        <Link className="text-xl" to="/stories">
+          Истории
+        </Link>
+        <Link className="text-xl" to="/tell_story">
+          Рассказать историю
+        </Link>
+      </div>
     </header>
   );
 }

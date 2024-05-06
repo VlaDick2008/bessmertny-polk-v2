@@ -30,7 +30,13 @@ export default function Story() {
     <div className="py-10">
       <div className="flex flex-col lg:flex-row gap-5">
         <div className="lg:w-[367px] lg:h-[490px] w-[190px] h-[270px] rounded">
-          <img src={story?.photo as string} alt="" className="object-cover w-full h-full rounded" />
+          <a href={story?.photo} target="_blank" rel="noreferrer">
+            <img
+              src={story?.photo as string}
+              alt="mainPhoto"
+              className="object-cover w-full h-full rounded"
+            />
+          </a>
         </div>
         <div>
           <div className="lg:text-5xl text-3xl">
@@ -44,7 +50,9 @@ export default function Story() {
         <div className="flex flex-wrap gap-2 mt-5 bg-stone-800 rounded p-2">
           {story?.aditionalPhotos.map((photo: string) => (
             <div key={photo} className="lg:w-[144px] lg:h-[200px] w-[100px] h-[160px] rounded">
-              <img src={photo} className="object-cover w-full h-full rounded" alt="" />
+              <a href={photo} target="_blank" rel="noreferrer">
+                <img src={photo} className="object-cover w-full h-full rounded" alt="" />
+              </a>
             </div>
           ))}
         </div>
